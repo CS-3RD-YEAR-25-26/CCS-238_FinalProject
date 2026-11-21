@@ -1,3 +1,4 @@
+// Recursive factorial calculation with a base case for 0 and 1.
 func factorial(_ number: Int) -> Int {
     if number <= 1 { return 1 }
     return number * factorial(number - 1)
