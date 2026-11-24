@@ -1,0 +1,50 @@
+begin
+    ! declaring of variables with different data types;
+    text pokemonName, pokemonType;
+    integer level, health;
+    real weight;
+    boolean isLegendary;
+
+    ! assigning of Pokemon information;
+    pokemonName :- "Rayquaza";
+    pokemonType :- "Dragon/Flying";
+    level := 70;
+    health := 250;
+    weight := 206;
+    isLegendary := true;
+
+    ! display Pokemon information;
+    outtext("===== POKEDEX =====");
+    outimage;
+
+    outtext("Pokemon: ");
+    outtext(pokemonName);
+    outimage;
+
+    outtext("Type: ");
+    outtext(pokemonType);
+    outimage;
+
+    outtext("Level: ");
+    outint(level, 0);
+    outimage;
+
+    outtext("Health: ");
+    outint(health, 0);
+    outimage;
+
+    outtext("Weight: ");
+    outfix(weight, 2, 0);
+    outtext(" kg");
+    outimage;
+
+    ! checking of legendary status;
+    outtext("Legendary: ");
+
+    if isLegendary then
+        outtext("Yes")
+    else
+        outtext("No");
+
+    outimage;
+end
