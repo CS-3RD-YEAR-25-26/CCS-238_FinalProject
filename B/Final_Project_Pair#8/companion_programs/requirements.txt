@@ -1,0 +1,2 @@
+# The setup and verification scripts use only the Python standard library.
+# See README.md for Swift and GNU Smalltalk setup instructions.

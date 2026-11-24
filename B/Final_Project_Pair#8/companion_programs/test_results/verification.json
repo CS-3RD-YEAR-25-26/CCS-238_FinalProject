@@ -1,0 +1,335 @@
+{
+  "swift_version": "Swift version 6.4.2 (swift-6.4.2-RELEASE)\nTarget: x86_64-unknown-windows-msvc\nBuild config: +assertions",
+  "smalltalk_version": "GNU Smalltalk version 3.2.5\nCopyright 2009 Free Software Foundation, Inc.\nWritten by Steve Byrne (sbb@gnu.org) and Paolo Bonzini (bonzini@gnu.org)\n\nGNU Smalltalk comes with NO WARRANTY, to the extent permitted by law.\nYou may redistribute copies of GNU Smalltalk under the terms of the\nGNU General Public License.  For more information, see the file named\nCOPYING.\n\nUsing default kernel path: /usr/share/gnu-smalltalk/kernel\nUsing default image path: /usr/lib/gnu-smalltalk",
+  "programs": {
+    "campus_fare_pass": {
+      "swift": {
+        "test_marker": "campus_fare_pass tests passed",
+        "interactive_cases": [
+          {
+            "case": "normal",
+            "input": "2000\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 2000 centavos\nStudent fare: 1600 centavos\n"
+          },
+          {
+            "case": "rounding",
+            "input": "3\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 3 centavos\nStudent fare: 2 centavos\n"
+          },
+          {
+            "case": "zero",
+            "input": "0\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 0 centavos\nStudent fare: 0 centavos\n"
+          },
+          {
+            "case": "maximum",
+            "input": "9223372036854775807\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 9223372036854775807 centavos\nStudent fare: 7378697629483820646 centavos\n"
+          },
+          {
+            "case": "invalid_-1",
+            "input": "-1\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_1.5",
+            "input": "1.5\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_abc",
+            "input": "abc\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_blank",
+            "input": "\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_9223372036854775808",
+            "input": "9223372036854775808\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "Base fare in centavos (2000 = PHP 20):\nInput ended.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 40
+      },
+      "smalltalk": {
+        "test_marker": "campus_fare_pass tests passed",
+        "interactive_cases": [
+          {
+            "case": "normal",
+            "input": "2000\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 2000 centavos\nStudent fare: 1600 centavos\n"
+          },
+          {
+            "case": "rounding",
+            "input": "3\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 3 centavos\nStudent fare: 2 centavos\n"
+          },
+          {
+            "case": "zero",
+            "input": "0\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 0 centavos\nStudent fare: 0 centavos\n"
+          },
+          {
+            "case": "maximum",
+            "input": "9223372036854775807\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nRegular fare: 9223372036854775807 centavos\nStudent fare: 7378697629483820646 centavos\n"
+          },
+          {
+            "case": "invalid_-1",
+            "input": "-1\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_1.5",
+            "input": "1.5\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_abc",
+            "input": "abc\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_blank",
+            "input": "\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "invalid_9223372036854775808",
+            "input": "9223372036854775808\n",
+            "output": "Base fare in centavos (2000 = PHP 20):\nEnter a whole number from 0 to 9223372036854775807.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "Base fare in centavos (2000 = PHP 20):\nInput ended.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 47
+      }
+    },
+    "study_room_seat_counter": {
+      "swift": {
+        "test_marker": "study_room_seat_counter tests passed",
+        "interactive_cases": [
+          {
+            "case": "sequence",
+            "input": "1\n1\n1\n2\n2\n2\n3\n4\n",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: accepted; occupied=1; available=1\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: accepted; occupied=2; available=0\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: rejected; occupied=2; available=0\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: accepted; occupied=1; available=1\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: accepted; occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: rejected; occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nStatus: occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "invalid",
+            "input": "bad\n\n4\n",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 41
+      },
+      "smalltalk": {
+        "test_marker": "study_room_seat_counter tests passed",
+        "interactive_cases": [
+          {
+            "case": "sequence",
+            "input": "1\n1\n1\n2\n2\n2\n3\n4\n",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: accepted; occupied=1; available=1\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: accepted; occupied=2; available=0\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nReserve: rejected; occupied=2; available=0\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: accepted; occupied=1; available=1\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: accepted; occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nCancel: rejected; occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nStatus: occupied=0; available=2\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "invalid",
+            "input": "bad\n\n4\n",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "1 Reserve | 2 Cancel | 3 Status | 4 Exit\nGoodbye.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 47
+      }
+    },
+    "lost_and_found_matcher": {
+      "swift": {
+        "test_marker": "lost_and_found_matcher tests passed",
+        "interactive_cases": [
+          {
+            "case": "multiple",
+            "input": "2\numbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nBlue umbrella\nBlack umbrella\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "single",
+            "input": "2\nbottle\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nSteel bottle\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "none",
+            "input": "2\nkeys\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "and",
+            "input": "2\nbottle\ncanteen\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "case",
+            "input": "2\nUmbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "inventory",
+            "input": "3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "register_search_inventory",
+            "input": "1\nGreen cap\nclothing\nlobby\n2\nclothing\nlobby\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nItem registered.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nGreen cap\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\nGreen cap | clothing | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "duplicate",
+            "input": "1\nBlue umbrella\numbrella\nlibrary\n2\numbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nItem registered.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nBlue umbrella\nBlack umbrella\nBlue umbrella\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "blank_registration",
+            "input": "1\n\nkeys\nlibrary\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nFields must not be blank.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "whitespace_registration",
+            "input": "1\nKeys\n \t\nlibrary\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nFields must not be blank.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "invalid_menu",
+            "input": "bad\n\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "registration_eof",
+            "input": "1\nKeys\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nInput ended.\n"
+          },
+          {
+            "case": "search_eof",
+            "input": "2\numbrella\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nInput ended.\n"
+          },
+          {
+            "case": "fresh_session",
+            "input": "2\nclothing\nlobby\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 49
+      },
+      "smalltalk": {
+        "test_marker": "lost_and_found_matcher tests passed",
+        "interactive_cases": [
+          {
+            "case": "multiple",
+            "input": "2\numbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nBlue umbrella\nBlack umbrella\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "single",
+            "input": "2\nbottle\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nSteel bottle\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "none",
+            "input": "2\nkeys\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "and",
+            "input": "2\nbottle\ncanteen\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "case",
+            "input": "2\nUmbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "inventory",
+            "input": "3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "register_search_inventory",
+            "input": "1\nGreen cap\nclothing\nlobby\n2\nclothing\nlobby\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nItem registered.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nGreen cap\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\nGreen cap | clothing | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "duplicate",
+            "input": "1\nBlue umbrella\numbrella\nlibrary\n2\numbrella\nlibrary\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nItem registered.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nBlue umbrella\nBlack umbrella\nBlue umbrella\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "blank_registration",
+            "input": "1\n\nkeys\nlibrary\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nFields must not be blank.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "whitespace_registration",
+            "input": "1\nKeys\n \t\nlibrary\n3\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nLocation:\nFields must not be blank.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nBlue umbrella | umbrella | library\nBlack umbrella | umbrella | library\nRed umbrella | umbrella | canteen\nSteel bottle | bottle | library\nNotebook | stationery | lobby\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "invalid_menu",
+            "input": "bad\n\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nChoose 1, 2, 3, or 4.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "eof",
+            "input": "",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          },
+          {
+            "case": "registration_eof",
+            "input": "1\nKeys\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nItem name:\nCategory:\nInput ended.\n"
+          },
+          {
+            "case": "search_eof",
+            "input": "2\numbrella\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nInput ended.\n"
+          },
+          {
+            "case": "fresh_session",
+            "input": "2\nclothing\nlobby\n4\n",
+            "output": "1 Register | 2 Search | 3 Inventory | 4 Exit\nCategory:\nLocation:\nNo matches.\n1 Register | 2 Search | 3 Inventory | 4 Exit\nGoodbye.\n"
+          }
+        ],
+        "status": "PASS",
+        "source_lines": 49
+      }
+    }
+  },
+  "status": "PASS"
+}
