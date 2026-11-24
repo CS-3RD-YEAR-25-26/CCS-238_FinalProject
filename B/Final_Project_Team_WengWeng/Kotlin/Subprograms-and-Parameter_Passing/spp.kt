@@ -1,23 +1,23 @@
-// defining of a function to calculate attack damage
+// fun declares a top-level function with Double parameters and a Double return type.
 fun calculateDamage(
     baseDamage: Double,
     multiplier: Double
 ): Double {
-    // calculation and returning of final damage
+    // return supplies the Double value of the multiplication to the caller.
     return baseDamage * multiplier
 }
 
 fun main() {
-    // declaring and assigning of attack information
+    // Kotlin infers Double from the decimal literals used to initialize these val bindings.
     val attackDamage = 60.0
     val effectiveness = 2.0
 
-    // calling of the function with parameters
+    // positional arguments match parameters in declaration order and are passed by value.
     val finalDamage = calculateDamage(
         attackDamage, effectiveness
     )
 
-    // display attack information
+    // println writes a line and returns Unit.
     println("===== POKEMON DAMAGE CALCULATOR =====")
     println("Attacker: Pikachu")
     println("Opponent: Gyarados")
@@ -26,7 +26,7 @@ fun main() {
     println("Base Damage: %.2f".format(attackDamage))
     println("Effectiveness: %.2fx".format(effectiveness))
 
-    // display the returned damage value
+    // the String.format extension formats the returned Double with two decimal places.
     println("Final Damage: %.2f".format(finalDamage))
     println("It's super effective!")
 }

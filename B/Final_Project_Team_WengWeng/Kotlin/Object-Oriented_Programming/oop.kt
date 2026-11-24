@@ -1,10 +1,10 @@
-// defining of a class with Pokemon attributes
+// the primary constructor declares read-only val properties and a mutable var property.
 class Pokemon(
     val pokemonName: String,
     var health: Int,
     val damage: Int
 ) {
-    // defining of a function to receive damage
+    // this member function updates the current instance's health with -= and implicitly returns Unit.
     fun receiveDamage(amount: Int) {
         health -= amount
 
@@ -13,28 +13,28 @@ class Pokemon(
         }
     }
 
-    // defining of a function to display Pokemon details
+    // String templates read the current instance's properties by name.
     fun displayInfo() {
         println("$pokemonName - HP: $health")
     }
 }
 
 fun main() {
-    // creation of two Pokemon objects
+    // calling the class by name invokes its constructor. each val binding holds an object reference.
     val pikachu = Pokemon("Pikachu", 100, 30)
     val charizard = Pokemon("Charizard", 150, 50)
 
-    // display Pokemon health before battle
+    // dot syntax invokes a member function on the selected instance, with parentheses for an empty argument list.
     println("===== BEFORE BATTLE =====")
 
     pikachu.displayInfo()
     charizard.displayInfo()
 
-    // execution of attacks between Pokemon objects
+    // dot syntax also reads a property, so one object's damage can be passed to another object's method.
     charizard.receiveDamage(pikachu.damage)
     pikachu.receiveDamage(charizard.damage)
 
-    // display Pokemon health after battle
+    // a val reference keeps pointing to the same object while its var health property changes.
     println()
     println("===== AFTER BATTLE =====")
 
