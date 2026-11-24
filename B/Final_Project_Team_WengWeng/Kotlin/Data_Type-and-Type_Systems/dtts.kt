@@ -1,5 +1,5 @@
 fun main() {
-    // declaring of variables with different data types
+    // val declares a read-only binding, with its explicit type after the colon.
     val pokemonName: String = "Rayquaza"
     val pokemonType: String = "Dragon/Flying"
     val level: Int = 70
@@ -7,7 +7,7 @@ fun main() {
     val weight: Double = 206.0
     val isLegendary: Boolean = true
 
-    // display Pokemon information
+    // String templates interpolate values with $name. String.format uses %.2f for two decimal places.
     println("===== POKEDEX =====")
     println("Pokemon: $pokemonName")
     println("Type: $pokemonType")
@@ -15,7 +15,7 @@ fun main() {
     println("Health: $health")
     println("Weight: %.2f kg".format(weight))
 
-    // checking of legendary status
+    // Kotlin requires a Boolean condition in if, so isLegendary can be used directly.
     print("Legendary: ")
 
     if (isLegendary) {
