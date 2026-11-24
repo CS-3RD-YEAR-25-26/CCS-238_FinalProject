@@ -1,0 +1,7 @@
+* OPSYN associates @ with ADD2. The third argument 2 specifies a binary operator.
+* The ADD2 label is the entry point. RETURN yields the value assigned to the function name.
+    DEFINE('ADD2(A,B)')
+    OPSYN('@','ADD2',2)
+    OUTPUT = 3 @ 4 :(END)
+ADD2 ADD2 = A + B :(RETURN)
+END

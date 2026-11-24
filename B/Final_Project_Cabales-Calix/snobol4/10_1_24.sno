@@ -1,0 +1,7 @@
+* DATATYPE(P) returns the name declared by DATA for the record's type.
+* FIELD('POINT',1) queries the first field name from the type definition. It returns a name rather than the stored value.
+    DATA('POINT(X,Y)')
+    P = POINT(3,4)
+    OUTPUT = DATATYPE(P)
+    OUTPUT = FIELD('POINT',1)
+END

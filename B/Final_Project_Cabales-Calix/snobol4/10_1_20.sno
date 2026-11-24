@@ -1,0 +1,6 @@
+* DEFINE registers a two-argument function at the TOTAL label.
+* The calculation is reusable through TOTAL(P,Q). RETURN yields the product assigned to TOTAL.
+    DEFINE('TOTAL(P,Q)')
+    OUTPUT = TOTAL(3,4) :(END)
+TOTAL TOTAL = P * Q :(RETURN)
+END

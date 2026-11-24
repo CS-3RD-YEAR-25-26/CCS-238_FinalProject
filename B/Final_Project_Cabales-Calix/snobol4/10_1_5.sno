@@ -1,0 +1,8 @@
+* ARRAY(1) allocates a mutable array with one element at index 1.
+* B = A copies the reference, so updating an element through A is visible through B.
+    A = ARRAY(1)
+    A<1> = 2
+    B = A
+    A<1> = 9
+    OUTPUT = B<1>
+END

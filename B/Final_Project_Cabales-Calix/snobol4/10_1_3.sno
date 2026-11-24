@@ -1,0 +1,7 @@
+* POS(0) and RPOS(0) anchor the pattern at the start and end of VALUE.
+* SPAN consumes a nonempty run of digits. :S(OK) branches only if the whole match succeeds.
+    VALUE = '123'
+    VALUE POS(0) SPAN('0123456789') RPOS(0) :S(OK)
+    OUTPUT = 'invalid' :(END)
+OK OUTPUT = 'valid'
+END

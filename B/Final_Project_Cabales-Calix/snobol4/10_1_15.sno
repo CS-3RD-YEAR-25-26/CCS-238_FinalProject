@@ -1,0 +1,9 @@
+* DEFINE registers FACT with parameter N and a matching FACT entry label.
+* LE(N,1) succeeds at the base case and :S(BASE) skips the recursive call.
+* Each invocation has its own parameter binding. RETURN yields the value assigned to FACT.
+    DEFINE('FACT(N)')
+    OUTPUT = FACT(4) :(END)
+FACT LE(N,1) :S(BASE)
+    FACT = N * FACT(N - 1) :(RETURN)
+BASE FACT = 1 :(RETURN)
+END

@@ -1,0 +1,6 @@
+* DATA declares INTBOX and creates both a constructor and the CONTENTS field accessor.
+* CONTENTS(B) retrieves the stored field. The prototype does not attach a type constraint to it.
+    DATA('INTBOX(CONTENTS)')
+    B = INTBOX(7)
+    OUTPUT = CONTENTS(B)
+END

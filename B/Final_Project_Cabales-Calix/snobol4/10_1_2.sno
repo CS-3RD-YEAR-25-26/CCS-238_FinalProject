@@ -1,0 +1,5 @@
+* START occupies column one because it labels a statement. An unlabeled statement begins with spaces.
+* A blank between adjacent expressions denotes concatenation. The quoted blank adds a space to the result.
+START WORD = 'red'
+    OUTPUT = WORD ' ' 'ball'
+END

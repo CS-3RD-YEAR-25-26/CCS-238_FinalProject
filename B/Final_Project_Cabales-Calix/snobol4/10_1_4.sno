@@ -1,0 +1,21 @@
+* $KEY treats the string stored in KEY as the name of the variable to read.
+* Angle brackets index ARRAY by position and TABLE by keys such as 'Lean'.
+* DEFINE binds GREET to its labeled entry point. RETURN yields the value assigned to GREET.
+    WORD = 'Lean'
+    KEY = 'WORD'
+    OUTPUT = $KEY
+
+    A = ARRAY(2)
+    A<1> = 'red'
+    A<2> = 'blue'
+    OUTPUT = A<1> ' | ' A<2>
+
+    H = TABLE()
+    H<'Lean'> = 9
+    H<'Zuriel'> = 7
+    OUTPUT = 'Lean:' H<'Lean'> ' | Zuriel:' H<'Zuriel'>
+
+    DEFINE('GREET(X)')
+    OUTPUT = GREET(WORD) :(END)
+GREET GREET = 'Hi ' X :(RETURN)
+END
