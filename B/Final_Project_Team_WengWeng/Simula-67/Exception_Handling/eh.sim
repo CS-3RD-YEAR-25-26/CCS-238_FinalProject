@@ -1,13 +1,13 @@
 begin
-    ! declaring of variables for Pokemon catching;
+    ! declare text and integer variables before the executable statements of the begin block.;
     text pokemonName;
     integer pokeballs;
 
-    ! assigning of Pokemon and inventory information;
+    ! the :- operator assigns a text reference, while := assigns an integer value.;
     pokemonName :- "Mewtwo";
     pokeballs := 0;
 
-    ! display Pokemon encounter information;
+    ! outtext and outint append to the output image, and outimage writes the line.;
     outtext("===== POKEMON ENCOUNTER =====");
     outimage;
 
@@ -20,15 +20,16 @@ begin
     outint(pokeballs, 0);
     outimage;
 
+    ! this example handles errors with if and else branches. begin and end group multiple statements in a branch.;
     if pokeballs < 0 then
     begin
-        ! checking if the inventory is invalid;
+        ! the < operator produces the boolean condition used by the first branch.;
         outtext("Error: Invalid Pokeball quantity.");
         outimage;
 
     end else if pokeballs = 0 then
     begin
-        ! checking if Pokeballs are available;
+        ! a single = compares integer values in the else if condition.;
         outtext("Error: No Pokeballs available.");
         outimage;
 
@@ -37,7 +38,7 @@ begin
 
     end else
     begin
-        ! execution of a valid catching attempt;
+        ! the final else runs when the previous conditions are false, and := stores the new integer value.;
         pokeballs := pokeballs - 1;
 
         outtext("Pokeball thrown successfully!");

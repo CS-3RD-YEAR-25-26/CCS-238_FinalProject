@@ -1,0 +1,17 @@
+begin
+    integer numberOfGrades;
+    real totalGrade, averageGrade;
+
+    numberOfGrades := 0;
+    totalGrade := 0.0;
+
+    ! the if condition guards the division. the else branch groups its calls with begin and end.;
+    if numberOfGrades > 0 then
+        averageGrade := totalGrade / numberOfGrades
+    else
+    begin
+        ! outtext appends to the output image, and outimage writes the line.;
+        outtext("No grades available.");
+        outimage;
+    end;
+end;

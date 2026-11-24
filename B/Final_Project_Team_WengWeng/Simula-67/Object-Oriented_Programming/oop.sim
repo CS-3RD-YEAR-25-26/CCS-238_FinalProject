@@ -1,10 +1,10 @@
 begin
-    ! defining of a class with Pokemon attributes;
+    ! the class header lists formal parameters, with their types declared before the begin block.;
     class Pokemon(pokemonName, health, damage);
         text pokemonName;
         integer health, damage;
     begin
-        ! defining of a procedure to receive damage;
+        ! the value clause passes a copy of the integer argument to the procedure.;
         procedure receiveDamage(amount);
             value amount;
             integer amount;
@@ -15,7 +15,7 @@ begin
                 health := 0;
         end;
 
-        ! defining of a procedure to display Pokemon details;
+        ! a procedure with no formal parameters is called without parentheses.;
         procedure displayInfo;
         begin
             outtext(pokemonName);
@@ -25,25 +25,25 @@ begin
         end;
     end;
 
-    ! declaring of object references;
+    ! ref(Pokemon) declares variables that can hold references to Pokemon instances.;
     ref(Pokemon) pikachu, charizard;
 
-    ! creation of two Pokemon objects;
+    ! new creates an instance with the supplied class arguments, and :- assigns its reference.;
     pikachu :- new Pokemon("Pikachu", 100, 30);
     charizard :- new Pokemon("Charizard", 150, 50);
 
-    ! display Pokemon health before battle;
+    ! outtext appends the heading to the output image, and outimage writes it as a line.;
     outtext("===== BEFORE BATTLE =====");
     outimage;
 
     pikachu.displayInfo;
     charizard.displayInfo;
 
-    ! execution of attacks between Pokemon objects;
+    ! dot notation selects an attribute or procedure on the referenced object.;
     charizard.receiveDamage(pikachu.damage);
     pikachu.receiveDamage(charizard.damage);
 
-    ! display Pokemon health after battle;
+    ! the same references expose the health values updated by the procedure through :=.;
     outimage;
     outtext("===== AFTER BATTLE =====");
     outimage;

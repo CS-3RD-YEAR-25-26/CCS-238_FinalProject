@@ -1,0 +1,31 @@
+begin
+    ! the class block declares attributes and procedures that belong to each Student instance.;
+    class Student;
+    begin
+        text studentName;
+        integer age;
+
+        ! a procedure inside a class can access the current instance's attributes by name.;
+        procedure displayInfo;
+        begin
+            outtext("Student Name: ");
+            outtext(studentName);
+            outimage;
+
+            outtext("Age: ");
+            outint(age, 2);
+            outimage;
+        end;
+    end;
+
+    ! ref(Student) declares an object reference. new creates the object and :- assigns the reference.;
+    ref(Student) s;
+    s :- new Student;
+
+    ! dot notation selects an attribute on s. text reference assignment uses :- and integer value assignment uses :=.;
+    s.studentName :- copy("Axel");
+    s.age := 21;
+
+    ! a parameterless procedure call uses the procedure name without parentheses.;
+    s.displayInfo;
+end;
