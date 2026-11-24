@@ -1,0 +1,50 @@
+begin
+    ! declaring of variables for Pokemon catching;
+    text pokemonName;
+    integer pokeballs;
+
+    ! assigning of Pokemon and inventory information;
+    pokemonName :- "Mewtwo";
+    pokeballs := 0;
+
+    ! display Pokemon encounter information;
+    outtext("===== POKEMON ENCOUNTER =====");
+    outimage;
+
+    outtext("A wild ");
+    outtext(pokemonName);
+    outtext(" appeared!");
+    outimage;
+
+    outtext("Available Pokeballs: ");
+    outint(pokeballs, 0);
+    outimage;
+
+    if pokeballs < 0 then
+    begin
+        ! checking if the inventory is invalid;
+        outtext("Error: Invalid Pokeball quantity.");
+        outimage;
+
+    end else if pokeballs = 0 then
+    begin
+        ! checking if Pokeballs are available;
+        outtext("Error: No Pokeballs available.");
+        outimage;
+
+        outtext("Unable to catch Pokemon.");
+        outimage;
+
+    end else
+    begin
+        ! execution of a valid catching attempt;
+        pokeballs := pokeballs - 1;
+
+        outtext("Pokeball thrown successfully!");
+        outimage;
+
+        outtext("Remaining Pokeballs: ");
+        outint(pokeballs, 0);
+        outimage;
+    end;
+end
