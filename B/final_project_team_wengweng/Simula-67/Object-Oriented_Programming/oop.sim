@@ -1,0 +1,53 @@
+begin
+    ! defining of a class with Pokemon attributes;
+    class Pokemon(pokemonName, health, damage);
+        text pokemonName;
+        integer health, damage;
+    begin
+        ! defining of a procedure to receive damage;
+        procedure receiveDamage(amount);
+            value amount;
+            integer amount;
+        begin
+            health := health - amount;
+
+            if health < 0 then
+                health := 0;
+        end;
+
+        ! defining of a procedure to display Pokemon details;
+        procedure displayInfo;
+        begin
+            outtext(pokemonName);
+            outtext(" - HP: ");
+            outint(health, 0);
+            outimage;
+        end;
+    end;
+
+    ! declaring of object references;
+    ref(Pokemon) pikachu, charizard;
+
+    ! creation of two Pokemon objects;
+    pikachu :- new Pokemon("Pikachu", 100, 30);
+    charizard :- new Pokemon("Charizard", 150, 50);
+
+    ! display Pokemon health before battle;
+    outtext("===== BEFORE BATTLE =====");
+    outimage;
+
+    pikachu.displayInfo;
+    charizard.displayInfo;
+
+    ! execution of attacks between Pokemon objects;
+    charizard.receiveDamage(pikachu.damage);
+    pikachu.receiveDamage(charizard.damage);
+
+    ! display Pokemon health after battle;
+    outimage;
+    outtext("===== AFTER BATTLE =====");
+    outimage;
+
+    pikachu.displayInfo;
+    charizard.displayInfo;
+end
