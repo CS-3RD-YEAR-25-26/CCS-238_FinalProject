@@ -1,0 +1,7 @@
+* The LOOP label marks the first statement in the loop body.
+* LE(I,3) succeeds while I is at most 3. :S(LOOP) repeats the loop and failure falls through to END.
+    I = 1
+LOOP OUTPUT = I
+    I = I + 1
+    LE(I,3) :S(LOOP)
+END

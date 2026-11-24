@@ -1,0 +1,6 @@
+* Subject, pattern, and replacement form a SNOBOL4 replacement statement.
+* The literal pattern finds the first occurrence in S, and assigning to OUTPUT writes the updated subject.
+    S = 'cat bat'
+    S 'cat' = 'dog'
+    OUTPUT = S
+END

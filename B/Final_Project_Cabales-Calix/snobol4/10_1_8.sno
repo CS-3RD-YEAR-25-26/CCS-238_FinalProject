@@ -1,0 +1,7 @@
+* DATATYPE returns the type name as a string, which IDENT compares with 'REAL'.
+* :S(YES) takes the success branch. The failure path falls through to the 'no' statement.
+    X = 6.7
+    IDENT(DATATYPE(X),'REAL') :S(YES)
+    OUTPUT = 'no' :(END)
+YES OUTPUT = 'yes'
+END

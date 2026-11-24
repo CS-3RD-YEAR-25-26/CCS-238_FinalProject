@@ -1,0 +1,9 @@
+* The SOUND field holds the function name as a string.
+* APPLY resolves that name at runtime and passes P as the argument declared by BARK(PETOBJ).
+* The selected function sets its return value through its own name before RETURN.
+    DATA('PET(SOUND)')
+    DEFINE('BARK(PETOBJ)')
+    P = PET('BARK')
+    OUTPUT = APPLY(SOUND(P),P) :(END)
+BARK BARK = 'woof' :(RETURN)
+END

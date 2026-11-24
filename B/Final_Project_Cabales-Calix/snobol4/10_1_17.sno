@@ -1,0 +1,7 @@
+* EQ(I,2) signals success at the stopping value and :S(END) jumps before OUTPUT.
+* The unconditional :(LOOP) transfer repeats the labeled statement when the stopping test fails.
+    I = 0
+LOOP I = I + 1
+    EQ(I,2) :S(END)
+    OUTPUT = I :(LOOP)
+END

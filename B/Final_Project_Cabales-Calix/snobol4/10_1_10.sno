@@ -1,0 +1,7 @@
+* Multiplication binds more tightly than division here, so 8 / 2 * 2 groups as 8 / (2 * 2).
+* The adjacent predicates must both succeed for the expression to reach :S(YES).
+    OUTPUT = 8 / 2 * 2
+    GT(8,5) LT(8,10) :S(YES)
+    OUTPUT = 'no' :(END)
+YES OUTPUT = 'yes'
+END

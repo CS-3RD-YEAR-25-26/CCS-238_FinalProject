@@ -1,0 +1,7 @@
+* POS(0) and RPOS(0) anchor the match at both ends of S.
+* SPAN requires at least one character from the digit set. A successful match transfers control to OK.
+    S = '67'
+    S POS(0) SPAN('0123456789') RPOS(0) :S(OK)
+    OUTPUT = 'invalid' :(END)
+OK OUTPUT = 'valid'
+END

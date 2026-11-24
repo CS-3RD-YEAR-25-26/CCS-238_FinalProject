@@ -1,0 +1,8 @@
+* The | operator tries alternatives, with 'cat' followed by 'dog' when needed.
+* Without a position anchor, matching can try later positions in the subject. :S(OK) branches on a match.
+    P = 'cat' | 'dog'
+    S = 'a dog'
+    S P :S(OK)
+    OUTPUT = 'no' :(END)
+OK OUTPUT = 'yes'
+END

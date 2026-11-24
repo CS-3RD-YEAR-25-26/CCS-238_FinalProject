@@ -1,0 +1,11 @@
+* DATA supplies the ACCOUNT constructor and the assignable BAL field selector.
+* GT(N,0) succeeds for positive amounts. :F(DONE) skips the update on zero or a negative amount.
+* Assigning BAL(A) to DEPOSIT makes the current balance the return value on either path.
+    DATA('ACCOUNT(BAL)')
+    DEFINE('DEPOSIT(A,N)')
+    A = ACCOUNT(5)
+    OUTPUT = DEPOSIT(A,2) :(END)
+DEPOSIT GT(N,0) :F(DONE)
+    BAL(A) = BAL(A) + N
+DONE DEPOSIT = BAL(A) :(RETURN)
+END

@@ -1,0 +1,6 @@
+* The literal 'ID=' matches the prefix of the pattern, and SPAN matches a nonempty run of digits after it.
+* The dot conditionally assigns the digits to N after the enclosing pattern succeeds.
+    S = 'ID=69'
+    S 'ID=' (SPAN('0123456789') . N)
+    OUTPUT = N
+END

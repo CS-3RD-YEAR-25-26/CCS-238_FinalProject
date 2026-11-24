@@ -1,0 +1,7 @@
+* GT signals success for a greater left operand. :S(BIG)F(SMALL) selects a label on either outcome.
+* The unconditional transfer to END in BIG skips the SMALL branch.
+    N = 4
+    GT(N,5) :S(BIG)F(SMALL)
+BIG OUTPUT = 'big' :(END)
+SMALL OUTPUT = 'small'
+END

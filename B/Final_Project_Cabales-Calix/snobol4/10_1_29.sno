@@ -1,0 +1,8 @@
+* *P defers reading P until match time, allowing the pattern to refer to itself.
+* The 'x' alternative ends the recursion. POS(0) and RPOS(0) require a complete match.
+    P = ('a' *P 'b') | 'x'
+    S = 'aaxbb'
+    S POS(0) P RPOS(0) :S(OK)
+    OUTPUT = 'no' :(END)
+OK OUTPUT = 'yes'
+END

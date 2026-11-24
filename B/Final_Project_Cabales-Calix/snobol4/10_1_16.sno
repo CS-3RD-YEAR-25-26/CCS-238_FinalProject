@@ -1,0 +1,6 @@
+* The right-hand expression reads the current value of N before assignment updates it.
+* OUTPUT is a predefined output variable. Assigning N to it writes the value without a separate print call.
+    N = 3
+    N = N + 2
+    OUTPUT = N
+END

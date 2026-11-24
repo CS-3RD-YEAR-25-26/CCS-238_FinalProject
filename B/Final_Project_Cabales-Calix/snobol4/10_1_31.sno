@@ -1,0 +1,14 @@
+* POS(0) and RPOS(0) bound the command, and each digit SPAN requires a nonempty operand.
+* The dot assignments capture the operation and operands only on success. :F(BAD) handles a failed match.
+* IDENT compares the operation name as a string and :S(ADD) selects the addition branch.
+    S = 'MUL(6,7)'
+    P = POS(0) (('ADD' | 'MUL') . OP) '('
+    P = P (SPAN('0123456789') . A) ','
+    P = P (SPAN('0123456789') . B) ')' RPOS(0)
+    S P :F(BAD)
+    IDENT(OP,'ADD') :S(ADD)
+    RESULT = A * B :(SHOW)
+ADD RESULT = A + B
+SHOW OUTPUT = 'Result: ' RESULT :(END)
+BAD OUTPUT = 'invalid'
+END
