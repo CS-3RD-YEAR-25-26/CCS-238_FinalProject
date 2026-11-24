@@ -1,0 +1,12 @@
+* The X following G() in the DEFINE prototype declares a function-local binding.
+* F reads the currently active X while G is executing because the binding is dynamically scoped.
+* Returning from G restores the previous X. RETURN yields the value stored in the function name.
+    X = 1
+    DEFINE('F()')
+    DEFINE('G()X')
+    OUTPUT = G()
+    OUTPUT = X :(END)
+F F = X :(RETURN)
+G X = 2
+    G = F() :(RETURN)
+END

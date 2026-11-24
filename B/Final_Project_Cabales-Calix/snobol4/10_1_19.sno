@@ -1,0 +1,10 @@
+* DATA creates the ACCOUNT constructor and a field selector, BAL, that can be assigned to.
+* DEPOSIT updates the record passed as A by assigning through BAL(A).
+* The caller can read BAL(A) directly because the field selector is available outside the function.
+    DATA('ACCOUNT(BAL)')
+    DEFINE('DEPOSIT(A,N)')
+    A = ACCOUNT(5)
+    DEPOSIT(A,2)
+    OUTPUT = BAL(A) :(END)
+DEPOSIT BAL(A) = BAL(A) + N :(RETURN)
+END

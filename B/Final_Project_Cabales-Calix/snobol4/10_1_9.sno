@@ -1,0 +1,6 @@
+* An ordinary variable has no fixed declared type. X can hold an INTEGER and then a STRING.
+* Assigning to the reserved OUTPUT variable writes the currently stored value to standard output.
+    X = 42
+    X = 'cat'
+    OUTPUT = X
+END

@@ -1,0 +1,9 @@
+* The pattern concatenates the key, a literal equals sign, and the numeric value between two position anchors.
+* Dot assignments capture the key and value in K and V only after the overall match succeeds.
+    P = POS(0) (SPAN('abcdefghijklmnopqrstuvwxyz') . K)
+    P = P '=' (SPAN('0123456789') . V) RPOS(0)
+    S = 'age=42'
+    S P :S(OK)
+    OUTPUT = 'invalid' :(END)
+OK OUTPUT = K ':' V
+END

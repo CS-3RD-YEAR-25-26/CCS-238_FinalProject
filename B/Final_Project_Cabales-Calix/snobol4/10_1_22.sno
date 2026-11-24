@@ -1,0 +1,7 @@
+* DATA creates separate constructors and selectors for ANIMAL and OWNER records.
+* OWNER stores an ANIMAL as a field. KIND(PET(O)) reads the inner record through two selectors.
+    DATA('ANIMAL(KIND)')
+    DATA('OWNER(PET)')
+    O = OWNER(ANIMAL('dog'))
+    OUTPUT = KIND(PET(O))
+END

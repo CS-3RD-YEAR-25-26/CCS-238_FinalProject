@@ -1,0 +1,6 @@
+* Arithmetic converts the numeric string '12' to an INTEGER before addition.
+* CONVERT gives OUTPUT a STRING value. DATATYPE(N) still reports the type of N itself.
+    N = '12' + 3
+    OUTPUT = CONVERT(N,'STRING')
+    OUTPUT = DATATYPE(N)
+END

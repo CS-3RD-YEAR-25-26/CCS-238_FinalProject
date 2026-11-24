@@ -1,0 +1,12 @@
+* DATATYPE reports the runtime type name of the stored value, such as INTEGER or REAL.
+* EQ signals success or failure. :S(YES)F(NO) uses that outcome to choose the branch.
+    S = 'John'
+    I = 6
+    R = 1.1
+    OUTPUT = DATATYPE(S)
+    OUTPUT = DATATYPE(I)
+    OUTPUT = DATATYPE(R)
+    EQ(I,6) :S(YES)F(NO)
+YES OUTPUT = 'TRUE' :(END)
+NO OUTPUT = 'FALSE'
+END

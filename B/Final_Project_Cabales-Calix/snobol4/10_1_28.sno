@@ -1,0 +1,6 @@
+* The subject-pattern-replacement statement changes one occurrence on a successful match.
+* :S(LOOP) searches the modified subject again. A failed match falls through to OUTPUT.
+    S = 'cat cat'
+LOOP S 'cat' = 'dog' :S(LOOP)
+    OUTPUT = S
+END
