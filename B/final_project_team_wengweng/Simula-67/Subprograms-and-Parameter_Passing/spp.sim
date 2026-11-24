@@ -1,0 +1,51 @@
+begin
+    ! defining of a procedure to calculate attack damage;
+    real procedure calculateDamage(baseDamage, multiplier);
+        value baseDamage, multiplier;
+        real baseDamage, multiplier;
+    begin
+        ! calculation and returning of final damage;
+        calculateDamage := baseDamage * multiplier;
+    end;
+
+    ! declaring of variables for attack calculation;
+    real attackDamage, effectiveness, finalDamage;
+
+    ! assigning of attack information;
+    attackDamage := 60;
+    effectiveness := 2;
+
+    ! calling of the procedure with parameters;
+    finalDamage :=
+        calculateDamage(attackDamage, effectiveness);
+
+    ! display attack information;
+    outtext("===== POKEMON DAMAGE CALCULATOR =====");
+    outimage;
+
+    outtext("Attacker: Pikachu");
+    outimage;
+
+    outtext("Opponent: Gyarados");
+    outimage;
+
+    outtext("Move: Thunderbolt");
+    outimage;
+
+    outtext("Base Damage: ");
+    outfix(attackDamage, 2, 0);
+    outimage;
+
+    outtext("Effectiveness: ");
+    outfix(effectiveness, 2, 0);
+    outtext("x");
+    outimage;
+
+    ! display the returned damage value;
+    outtext("Final Damage: ");
+    outfix(finalDamage, 2, 0);
+    outimage;
+
+    outtext("It's super effective!");
+    outimage;
+end
