@@ -1,0 +1,16 @@
+.git
+.gitignore
+.vscode
+.idea
+
+**/*.jar
+**/*.class
+**/*.o
+**/*.atr
+**/*.exe
+
+**/node_modules
+**/build
+**/dist
+
+**/README.md

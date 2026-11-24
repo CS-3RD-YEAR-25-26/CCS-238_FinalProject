@@ -1,0 +1,25 @@
+FROM eclipse-temurin:21-jdk-jammy
+
+ARG KOTLIN_VERSION=2.2.21
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl unzip ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -fL \
+    "https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip" \
+    -o /tmp/kotlin.zip && \
+    unzip -q /tmp/kotlin.zip -d /opt && \
+    rm /tmp/kotlin.zip
+
+ENV PATH="/opt/kotlinc/bin:${PATH}"
+
+COPY scripts/run-kotlin.sh /usr/local/bin/run-kotlin
+
+RUN sed -i 's/\r$//' /usr/local/bin/run-kotlin && \
+    chmod +x /usr/local/bin/run-kotlin
+
+WORKDIR /workspace
+
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/run-kotlin"]

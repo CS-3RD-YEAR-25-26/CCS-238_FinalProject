@@ -1,0 +1,32 @@
+name: prog_lang-final_project
+
+services:
+  kotlin:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.kotlin
+
+    image: programming-languages-kotlin
+
+    volumes:
+      - ./Kotlin:/workspace:ro
+
+    working_dir: /workspace
+
+    stdin_open: true
+    tty: true
+
+  simula:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.simula
+
+    image: programming-languages-simula
+
+    volumes:
+      - ./Simula-67:/workspace:ro
+
+    working_dir: /workspace
+
+    stdin_open: true
+    tty: true
