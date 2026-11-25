@@ -1,0 +1,13 @@
+error(DebugAllocator): memory address 0x1e9b4460000 leaked: 
+D:\school\4TH_YEAR_1ST_SEM\CCS 238 - Programming Languages\Final Project\zig\02_records.zig:161:26: 0x7ff68b1a89e4 in main (02_records_zcu.obj)
+        _ = try gpa.alloc(u8, 64); // result discarded: the block is unreachable
+                         ^
+C:\Users\ledes\AppData\Local\Microsoft\WinGet\Packages\zig.zig_Microsoft.Winget.Source_8wekyb3d8bbwe\zig-x86_64-windows-0.17.0\lib\std\start.zig:827: 0x7ff68b1a9030 in callMain (02_records_zcu.obj)
+    return wrapMain(root.main(.{
+
+C:\Users\ledes\AppData\Local\Microsoft\WinGet\Packages\zig.zig_Microsoft.Winget.Source_8wekyb3d8bbwe\zig-x86_64-windows-0.17.0\lib\std\start.zig:576:17: 0x7ff68b1a9030 in WinStartup (02_records_zcu.obj)
+        callMain(std.os.windows.peb().ProcessParameters.CommandLine.slice(), .global),
+                ^
+???:?:?: 0x7ffd47aedda6 in ??? (KERNEL32.DLL)
+???:?:?: 0x7ffd48d1ee4b in ??? (ntdll.dll)
+
