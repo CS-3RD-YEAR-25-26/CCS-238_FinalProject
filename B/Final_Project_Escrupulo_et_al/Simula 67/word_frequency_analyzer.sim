@@ -1,0 +1,176 @@
+BEGIN
+    ! Outer block: Define class to hold word entries;
+    CLASS WordItem(wtext);
+        TEXT wtext;
+    BEGIN
+        INTEGER count;
+        count := 1;
+    END;
+
+    ! Inner block: Program logic and variable declarations;
+    BEGIN
+        TEXT input_text, buf, w;
+        CHARACTER c;
+        INTEGER i, k, j, word_len;
+        BOOLEAN in_word, found;
+
+        REF(WordItem) ARRAY items(1:100);
+        INTEGER unique_count, total_words, top_n;
+        REF(WordItem) temp;
+
+        ! Initialize variables;
+        input_text :- "Hello, world! hello.";
+        total_words := 0;
+        unique_count := 0;
+        in_word := FALSE;
+        word_len := 0;
+        buf :- Blanks(50);
+
+        ! Parse input text into words;
+        input_text.SetPos(1);
+        WHILE input_text.More DO
+        BEGIN
+            c := input_text.GetChar;
+
+            ! Convert uppercase to lowercase;
+            IF c >= 'A' AND c <= 'Z' THEN
+                c := CHAR(RANK(c) + 32);
+
+            ! Check if character is alphanumeric;
+            IF (c >= 'a' AND c <= 'z') OR (c >= '0' AND c <= '9') THEN
+            BEGIN
+                IF NOT in_word THEN
+                BEGIN
+                    in_word := TRUE;
+                    word_len := 0;
+                    buf :- Blanks(50);
+                END;
+                word_len := word_len + 1;
+                buf.SetPos(word_len);
+                buf.PutChar(c);
+            END
+            ELSE
+            BEGIN
+                IF in_word THEN
+                BEGIN
+                    in_word := FALSE;
+                    w :- Copy(buf.Sub(1, word_len));
+                    total_words := total_words + 1;
+
+                    found := FALSE;
+                    FOR k := 1 STEP 1 UNTIL unique_count DO
+                    BEGIN
+                        IF items(k).wtext = w THEN
+                        BEGIN
+                            items(k).count := items(k).count + 1;
+                            found := TRUE;
+                        END;
+                    END;
+
+                    IF NOT found THEN
+                    BEGIN
+                        unique_count := unique_count + 1;
+                        items(unique_count) :- NEW WordItem(w);
+                    END;
+                END;
+            END;
+        END;
+
+        ! Process final word if text ended inside a word;
+        IF in_word THEN
+        BEGIN
+            in_word := FALSE;
+            w :- Copy(buf.Sub(1, word_len));
+            total_words := total_words + 1;
+
+            found := FALSE;
+            FOR k := 1 STEP 1 UNTIL unique_count DO
+            BEGIN
+                IF items(k).wtext = w THEN
+                BEGIN
+                    items(k).count := items(k).count + 1;
+                    found := TRUE;
+                END;
+            END;
+
+            IF NOT found THEN
+            BEGIN
+                unique_count := unique_count + 1;
+                items(unique_count) :- NEW WordItem(w);
+            END;
+        END;
+
+        ! Print original paragraph;
+        OutText("Paragraph: ");
+        OutText(input_text);
+        OutImage;
+
+        ! Sort words alphabetically;
+        FOR i := 1 STEP 1 UNTIL unique_count - 1 DO
+        BEGIN
+            FOR j := i + 1 STEP 1 UNTIL unique_count DO
+            BEGIN
+                IF items(j).wtext < items(i).wtext THEN
+                BEGIN
+                    temp :- items(i);
+                    items(i) :- items(j);
+                    items(j) :- temp;
+                END;
+            END;
+        END;
+
+        ! Print word frequencies (alphabetical);
+        OutImage;
+        OutText("Word frequencies (alphabetical):");
+        OutImage;
+        FOR i := 1 STEP 1 UNTIL unique_count DO
+        BEGIN
+            OutText(items(i).wtext);
+            OutText(": ");
+            OutInt(items(i).count, 0);
+            OutImage;
+        END;
+
+        ! Sort words by frequency descending, tie-break alphabetically;
+        FOR i := 1 STEP 1 UNTIL unique_count - 1 DO
+        BEGIN
+            FOR j := i + 1 STEP 1 UNTIL unique_count DO
+            BEGIN
+                IF (items(j).count > items(i).count) OR
+                   (items(j).count = items(i).count AND items(j).wtext < items(i).wtext) THEN
+                BEGIN
+                    temp :- items(i);
+                    items(i) :- items(j);
+                    items(j) :- temp;
+                END;
+            END;
+        END;
+
+        ! Print text summary;
+        OutImage;
+        OutText("Text summary:");
+        OutImage;
+        OutText("Total words: ");
+        OutInt(total_words, 0);
+        OutImage;
+        OutText("Unique words: ");
+        OutInt(unique_count, 0);
+        OutImage;
+
+        ! Print most frequent words (top 3);
+        OutText("Most frequent words: [");
+        top_n := IF unique_count < 3 THEN unique_count ELSE 3;
+        FOR i := 1 STEP 1 UNTIL top_n DO
+        BEGIN
+            OutText("('");
+            OutText(items(i).wtext);
+            OutText("', ");
+            OutInt(items(i).count, 0);
+            OutText(")");
+            IF i < top_n THEN
+                OutText(", ");
+        END;
+        OutText("]");
+        OutImage;
+    END;
+END;

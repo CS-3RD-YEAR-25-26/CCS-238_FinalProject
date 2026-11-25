@@ -1,0 +1,113 @@
+BEGIN
+    INTEGER ARRAY nums(1:8);
+    INTEGER i;
+
+    ! Merge procedure to combine two sorted sub-arrays;
+    PROCEDURE merge(A, p, q, r);
+        INTEGER ARRAY A;
+        INTEGER p, q, r;
+    BEGIN
+        INTEGER n1, n2;
+        INTEGER i, j, k;
+
+        n1 := q - p + 1;
+        n2 := r - q;
+
+        BEGIN
+            INTEGER ARRAY left(1:n1);
+            INTEGER ARRAY right(1:n2);
+
+            ! Copy data into temporary sub-arrays;
+            FOR i := 1 STEP 1 UNTIL n1 DO
+                left(i) := A(p + i - 1);
+
+            FOR j := 1 STEP 1 UNTIL n2 DO
+                right(j) := A(q + j);
+
+            i := 1;
+            j := 1;
+            k := p;
+
+            ! Compare and merge back into A;
+            WHILE i <= n1 AND j <= n2 DO
+            BEGIN
+                OutText("Comparing ");
+                OutInt(left(i), 1);
+                OutText(" and ");
+                OutInt(right(j), 1);
+                OutImage;
+
+                IF left(i) <= right(j) THEN
+                BEGIN
+                    A(k) := left(i);
+                    i := i + 1;
+                END
+                ELSE
+                BEGIN
+                    A(k) := right(j);
+                    j := j + 1;
+                END;
+                k := k + 1;
+            END;
+
+            ! Copy remaining elements from left half;
+            WHILE i <= n1 DO
+            BEGIN
+                OutText("Adding remaining element from left half: ");
+                OutInt(left(i), 1);
+                OutImage;
+
+                A(k) := left(i);
+                i := i + 1;
+                k := k + 1;
+            END;
+
+            ! Copy remaining elements from right half;
+            WHILE j <= n2 DO
+            BEGIN
+                OutText("Adding remaining element from right half: ");
+                OutInt(right(j), 1);
+                OutImage;
+
+                A(k) := right(j);
+                j := j + 1;
+                k := k + 1;
+            END;
+        END;
+    END;
+
+    ! Recursive merge sort routine;
+    PROCEDURE merge_sort(A, p, r);
+        INTEGER ARRAY A;
+        INTEGER p, r;
+    BEGIN
+        IF p < r THEN
+        BEGIN
+            INTEGER q;
+            q := (p + r) // 2;
+            merge_sort(A, p, q);
+            merge_sort(A, q + 1, r);
+            merge(A, p, q, r);
+        END;
+    END;
+
+    ! Initialize array;
+    nums(1) := 12; nums(2) := 31; nums(3) := 4; nums(4) := 3;
+    nums(5) := 9;  nums(6) := 5;  nums(7) := 8; nums(8) := 24;
+
+    OutText("Array before sorting:");
+    FOR i := 1 STEP 1 UNTIL 8 DO
+    BEGIN
+        OutInt(nums(i), 4);
+    END;
+    OutImage;
+
+    merge_sort(nums, 1, 8);
+
+    OutText("Sorted array is:");
+    FOR i := 1 STEP 1 UNTIL 8 DO
+    BEGIN
+        OutInt(nums(i), 4);
+    END;
+    OutImage;
+END;

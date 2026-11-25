@@ -1,0 +1,106 @@
+BEGIN
+    ! Class definition for Student;
+    CLASS Student(sid, sname);
+        TEXT sid, sname;
+    BEGIN
+        REAL ARRAY grades(1:20);
+        INTEGER grade_count;
+
+        PROCEDURE add_grade(g);
+            REAL g;
+        BEGIN
+            IF g >= 0.0 AND g <= 100.0 THEN
+            BEGIN
+                grade_count := grade_count + 1;
+                grades(grade_count) := g;
+            END;
+        END;
+
+        REAL PROCEDURE calculate_average;
+        BEGIN
+            IF grade_count = 0 THEN
+                calculate_average := -1.0
+            ELSE
+            BEGIN
+                REAL sum;
+                INTEGER i;
+                sum := 0.0;
+                FOR i := 1 STEP 1 UNTIL grade_count DO
+                    sum := sum + grades(i);
+                calculate_average := sum / grade_count;
+            END;
+        END;
+
+        grade_count := 0;
+    END;
+
+    ! Main program variable declarations;
+    REF(Student) ARRAY students(1:10);
+    INTEGER student_count;
+    INTEGER idx, g_idx;
+    REAL avg;
+    REF(Student) st;
+
+    ! Program execution;
+    student_count := 0;
+
+    student_count := student_count + 1;
+    students(student_count) :- NEW Student("S1", "Ari");
+    students(1).add_grade(80.0);
+    students(1).add_grade(90.0);
+
+    student_count := student_count + 1;
+    students(student_count) :- NEW Student("S2", "Bea");
+    students(2).add_grade(55.0);
+    students(2).add_grade(65.0);
+
+    student_count := student_count + 1;
+    students(student_count) :- NEW Student("S3", "Cal");
+    students(3).add_grade(45.0);
+    students(3).add_grade(50.0);
+
+    student_count := student_count + 1;
+    students(student_count) :- NEW Student("S4", "Dee");
+
+    OutText("Student grade report:");
+    OutImage;
+
+    FOR idx := 1 STEP 1 UNTIL student_count DO
+    BEGIN
+        st :- students(idx);
+
+        OutText(st.sid);
+        OutText(" | ");
+        OutText(st.sname);
+        OutText(" | Grades: ");
+
+        IF st.grade_count = 0 THEN
+            OutText("None")
+        ELSE
+        BEGIN
+            FOR g_idx := 1 STEP 1 UNTIL st.grade_count DO
+            BEGIN
+                OutFix(st.grades(g_idx), 0, 0);
+                IF g_idx < st.grade_count THEN
+                    OutText(", ");
+            END;
+        END;
+
+        OutText(" | Average: ");
+        avg := st.calculate_average;
+        IF avg < 0.0 THEN
+            OutText("N/A")
+        ELSE
+            OutFix(avg, 1, 0);
+
+        OutText(" | Status: ");
+        IF avg < 0.0 THEN
+            OutText("No grades")
+        ELSE IF avg >= 60.0 THEN
+            OutText("Pass")
+        ELSE
+            OutText("Fail");
+
+        OutImage;
+    END;
+END;
