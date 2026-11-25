@@ -1,0 +1,7 @@
+[package]
+name = "ccs238_rust"
+version = "0.1.0"
+edition = "2021"
+
+# Each program is a separate binary in src/bin/ (e.g. src/bin/p1_expr.rs),
+# run with: cargo run --bin p1_expr
