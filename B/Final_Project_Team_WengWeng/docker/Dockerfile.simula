@@ -1,0 +1,45 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    build-essential \
+    cmake \
+    bison \
+    flex \
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download GNU Cim
+RUN git clone \
+    https://github.com/sergev/simula-compiler.git \
+    /opt/simula-compiler
+
+WORKDIR /opt/simula-compiler
+
+# Build and install GNU Cim
+RUN cmake -S . -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr/local && \
+    cmake --build build -j"$(nproc)" && \
+    cmake --install build
+
+# Store runtime files in a centralized directory
+RUN mkdir -p /opt/simula-runtime && \
+    cp lib/*.atr /opt/simula-runtime/ && \
+    cp "$(find build -name 'simfile.c.o' -print -quit)" \
+       /opt/simula-runtime/simfile.o && \
+    cp "$(find build -name 'simenvir.c.o' -print -quit)" \
+       /opt/simula-runtime/simenvir.o
+
+ENV PATH="/usr/local/bin:${PATH}"
+
+COPY scripts/run-simula.sh /usr/local/bin/run-simula
+
+RUN sed -i 's/\r$//' /usr/local/bin/run-simula && \
+    chmod +x /usr/local/bin/run-simula
+
+WORKDIR /workspace
+
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/run-simula"]

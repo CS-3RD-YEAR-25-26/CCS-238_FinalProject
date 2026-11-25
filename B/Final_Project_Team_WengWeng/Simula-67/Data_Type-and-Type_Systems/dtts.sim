@@ -1,0 +1,51 @@
+begin
+    ! declarations put the type first and can group names of the same type.;
+    text pokemonName, pokemonType;
+    integer level, health;
+    real weight;
+    boolean isLegendary;
+
+    ! use :- for text reference assignment and := for numeric and boolean value assignment.;
+    pokemonName :- "Rayquaza";
+    pokemonType :- "Dragon/Flying";
+    level := 70;
+    health := 250;
+    weight := 206;
+    isLegendary := true;
+
+    ! outtext appends to the output image, which outimage writes as a line.;
+    outtext("===== POKEDEX =====");
+    outimage;
+
+    outtext("Pokemon: ");
+    outtext(pokemonName);
+    outimage;
+
+    outtext("Type: ");
+    outtext(pokemonType);
+    outimage;
+
+    outtext("Level: ");
+    outint(level, 0);
+    outimage;
+
+    outtext("Health: ");
+    outint(health, 0);
+    outimage;
+
+    ! outfix formats a real with two fractional digits and uses only the required field width when width is 0.;
+    outtext("Weight: ");
+    outfix(weight, 2, 0);
+    outtext(" kg");
+    outimage;
+
+    ! if reads a boolean condition directly, with then and else introducing the two branches.;
+    outtext("Legendary: ");
+
+    if isLegendary then
+        outtext("Yes")
+    else
+        outtext("No");
+
+    outimage;
+end

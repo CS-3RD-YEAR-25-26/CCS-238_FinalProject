@@ -1,0 +1,19 @@
+begin
+    real averageGrade;
+
+    ! real procedure declares a real result. the value clause passes the listed arguments by value.;
+    real procedure calculateAverage(programming, math, english);
+    value programming, math, english;
+    real programming, math, english;
+    begin
+        ! assigning to the procedure name sets the value returned by the call.;
+        calculateAverage := (programming + math + english) / 3;
+    end;
+
+    averageGrade := calculateAverage(90.0, 85.0, 88.0);
+
+    outtext("Average Grade: ");
+    ! outfix formats the result with two fractional digits in a field six characters wide.;
+    outfix(averageGrade, 2, 6);
+    outimage;
+end;

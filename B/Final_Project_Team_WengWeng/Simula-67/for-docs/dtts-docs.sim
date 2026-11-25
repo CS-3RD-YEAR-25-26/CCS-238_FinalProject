@@ -1,0 +1,50 @@
+begin
+    ! Simula places the type before the names and allows comma-separated declarations.;
+    text studentName, studentID;
+    integer age;
+    real programmingGrade, mathematicsGrade;
+    real englishGrade, averageGrade;
+
+    ! copy creates a separate text frame, and :- assigns its reference.;
+    studentName :- copy("Joelmar");
+    studentID :- copy("2023M2082");
+
+    ! the := operator assigns numeric values and converts integer literals assigned to real variables.;
+    age := 20;
+    programmingGrade := 90;
+    mathematicsGrade := 85;
+    englishGrade := 88;
+
+    averageGrade := (programmingGrade +
+                     mathematicsGrade +
+                     englishGrade) / 3;
+
+    outtext("Student Name: ");
+    outtext(studentName);
+    outimage;
+
+    outtext("Student ID:   ");
+    outtext(studentID);
+    outimage;
+
+    ! outint takes a field width. outfix takes both the number of fractional digits and the field width.;
+    outtext("Age:          ");
+    outint(age, 2);
+    outimage;
+
+    outtext("Programming:  ");
+    outfix(programmingGrade, 2, 6);
+    outimage;
+
+    outtext("Mathematics:  ");
+    outfix(mathematicsGrade, 2, 6);
+    outimage;
+
+    outtext("English:      ");
+    outfix(englishGrade, 2, 6);
+    outimage;
+
+    outtext("Average:      ");
+    outfix(averageGrade, 2, 6);
+    outimage;
+end;

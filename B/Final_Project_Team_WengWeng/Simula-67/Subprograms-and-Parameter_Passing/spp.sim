@@ -1,0 +1,51 @@
+begin
+    ! real before procedure gives the result type, and value specifies pass-by-value for the listed parameters.;
+    real procedure calculateDamage(baseDamage, multiplier);
+        value baseDamage, multiplier;
+        real baseDamage, multiplier;
+    begin
+        ! assignment to the procedure name with := sets the result returned to the caller.;
+        calculateDamage := baseDamage * multiplier;
+    end;
+
+    ! one real declaration gives all three comma-separated variables the same type.;
+    real attackDamage, effectiveness, finalDamage;
+
+    ! value assignment with := converts these integer literals to real for storage.;
+    attackDamage := 60;
+    effectiveness := 2;
+
+    ! arguments match formal parameters by position, and := stores the returned real value.;
+    finalDamage :=
+        calculateDamage(attackDamage, effectiveness);
+
+    ! outtext appends to the current output image, and outimage writes the line.;
+    outtext("===== POKEMON DAMAGE CALCULATOR =====");
+    outimage;
+
+    outtext("Attacker: Pikachu");
+    outimage;
+
+    outtext("Opponent: Gyarados");
+    outimage;
+
+    outtext("Move: Thunderbolt");
+    outimage;
+
+    outtext("Base Damage: ");
+    outfix(attackDamage, 2, 0);
+    outimage;
+
+    outtext("Effectiveness: ");
+    outfix(effectiveness, 2, 0);
+    outtext("x");
+    outimage;
+
+    ! outfix formats the real result with two fractional digits and a width of 0 for a minimal field.;
+    outtext("Final Damage: ");
+    outfix(finalDamage, 2, 0);
+    outimage;
+
+    outtext("It's super effective!");
+    outimage;
+end
