@@ -1,0 +1,17 @@
+=== CRC tables built at compile time ===
+check value computed during compilation: CBF43926
+crc32 table[1] = 77073096
+distinct types: 03_compile_time_crc32.Crc(3988292384) / 03_compile_time_crc32.Crc(2197175160)
+
+"123456789"
+    crc32  = CBF43926
+    crc32c = E3069283
+"The quick brown fox jumps over the lazy dog"
+    crc32  = 414FA339
+    crc32c = 22620404
+"Forth vs. Zig"
+    crc32  = D5F45FE1
+    crc32c = D28D7581
+""
+    crc32  = 00000000
+    crc32c = 00000000

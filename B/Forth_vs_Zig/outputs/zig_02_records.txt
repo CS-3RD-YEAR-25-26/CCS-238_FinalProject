@@ -1,0 +1,31 @@
+=== Heap records: DebugAllocator ===
+  Ana          92  A
+  Ben          78  C
+  Carla        85  B
+  Dan          64  D
+  Eve          99  A
+  count: 5 average: 83.60  best: Eve (99)
+
+Removing Dan ...
+  Ana          92  A
+  Ben          78  C
+  Carla        85  B
+  Eve          99  A
+  count: 4 average: 88.50  best: Eve (99)
+
+leak check after deinit: ok
+
+=== Same records, FixedBufferAllocator on the stack ===
+  Ana          92  A
+  Ben          78  C
+  Carla        85  B
+  Dan          64  D
+  Eve          99  A
+  count: 5 average: 83.60  best: Eve (99)
+  bytes of the 512-byte stack buffer in use: 166
+
+=== Too small a buffer: error.OutOfMemory is a value ===
+  buildRoster failed with error.OutOfMemory after 3 record(s)
+
+=== A deliberate leak: allocate and forget ===
+  leak check: leak  <- reported by the allocator itself (details on stderr)

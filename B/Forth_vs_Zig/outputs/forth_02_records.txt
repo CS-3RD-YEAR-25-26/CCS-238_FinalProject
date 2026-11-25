@@ -1,0 +1,26 @@
+=== Dictionary (static) memory ===
+  1000 ALLOT moved HERE by 1000 bytes
+  -1000 ALLOT gave the most recent 1000 bytes back (LIFO only)
+
+=== Heap records: ALLOCATE / FREE ===
+  Ana          92  A
+  Ben          78  C
+  Carla        85  B
+  Dan          64  D
+  Eve          99  A
+  count: 5 average: 83.60  best: Eve (99)
+  live heap blocks: 5 
+
+Removing Dan ...
+  Ana          92  A
+  Ben          78  C
+  Carla        85  B
+  Eve          99  A
+  count: 4 average: 88.50  best: Eve (99)
+  live heap blocks: 4 
+
+After free-roster, live heap blocks: 0 
+
+=== A deliberate leak: allocate and forget ===
+  live heap blocks: 1 <- only our own counter knows; Forth itself reports nothing
+  data stack at end: <0> 
