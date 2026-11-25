@@ -1,0 +1,12 @@
+Set-Location "C:\Users\Acer\Downloads\programs\pascal"
+fpc .\StudentGradeManagement.pas
+.\StudentGradeManagement.exe
+fpc .\RecursiveMathematicalCalculator.pas
+.\RecursiveMathematicalCalculator.exe
+fpc .\InventoryManagement.pas
+.\InventoryManagement.exe
+
+Set-Location "C:\Users\Acer\Downloads\programs\nim"
+nim c -r .\StudentGradeManagement.nim
+nim c -r .\RecursiveMathematicalCalculator.nim
+nim c -r .\InventoryManagement.nim
