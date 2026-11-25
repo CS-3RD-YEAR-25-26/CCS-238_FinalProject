@@ -1,0 +1,43 @@
+CASE normal
+Base fare in centavos (2000 = PHP 20):
+Regular fare: 2000 centavos
+Student fare: 1600 centavos
+
+CASE rounding
+Base fare in centavos (2000 = PHP 20):
+Regular fare: 3 centavos
+Student fare: 2 centavos
+
+CASE zero
+Base fare in centavos (2000 = PHP 20):
+Regular fare: 0 centavos
+Student fare: 0 centavos
+
+CASE maximum
+Base fare in centavos (2000 = PHP 20):
+Regular fare: 9223372036854775807 centavos
+Student fare: 7378697629483820646 centavos
+
+CASE invalid_-1
+Base fare in centavos (2000 = PHP 20):
+Enter a whole number from 0 to 9223372036854775807.
+
+CASE invalid_1.5
+Base fare in centavos (2000 = PHP 20):
+Enter a whole number from 0 to 9223372036854775807.
+
+CASE invalid_abc
+Base fare in centavos (2000 = PHP 20):
+Enter a whole number from 0 to 9223372036854775807.
+
+CASE invalid_blank
+Base fare in centavos (2000 = PHP 20):
+Enter a whole number from 0 to 9223372036854775807.
+
+CASE invalid_9223372036854775808
+Base fare in centavos (2000 = PHP 20):
+Enter a whole number from 0 to 9223372036854775807.
+
+CASE eof
+Base fare in centavos (2000 = PHP 20):
+Input ended.

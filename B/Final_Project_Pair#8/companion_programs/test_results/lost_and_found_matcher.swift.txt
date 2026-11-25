@@ -1,0 +1,147 @@
+CASE multiple
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+Blue umbrella
+Black umbrella
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE single
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+Steel bottle
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE none
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+No matches.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE and
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+No matches.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE case
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+No matches.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE inventory
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Blue umbrella | umbrella | library
+Black umbrella | umbrella | library
+Red umbrella | umbrella | canteen
+Steel bottle | bottle | library
+Notebook | stationery | lobby
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE register_search_inventory
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Item name:
+Category:
+Location:
+Item registered.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+Green cap
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Blue umbrella | umbrella | library
+Black umbrella | umbrella | library
+Red umbrella | umbrella | canteen
+Steel bottle | bottle | library
+Notebook | stationery | lobby
+Green cap | clothing | lobby
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE duplicate
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Item name:
+Category:
+Location:
+Item registered.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+Blue umbrella
+Black umbrella
+Blue umbrella
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE blank_registration
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Item name:
+Category:
+Location:
+Fields must not be blank.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Blue umbrella | umbrella | library
+Black umbrella | umbrella | library
+Red umbrella | umbrella | canteen
+Steel bottle | bottle | library
+Notebook | stationery | lobby
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE whitespace_registration
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Item name:
+Category:
+Location:
+Fields must not be blank.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Blue umbrella | umbrella | library
+Black umbrella | umbrella | library
+Red umbrella | umbrella | canteen
+Steel bottle | bottle | library
+Notebook | stationery | lobby
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE invalid_menu
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Choose 1, 2, 3, or 4.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Choose 1, 2, 3, or 4.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE eof
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.
+
+CASE registration_eof
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Item name:
+Category:
+Input ended.
+
+CASE search_eof
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+Input ended.
+
+CASE fresh_session
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Category:
+Location:
+No matches.
+1 Register | 2 Search | 3 Inventory | 4 Exit
+Goodbye.

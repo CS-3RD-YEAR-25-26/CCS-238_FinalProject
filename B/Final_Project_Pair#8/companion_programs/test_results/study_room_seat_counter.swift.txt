@@ -1,0 +1,29 @@
+CASE sequence
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Reserve: accepted; occupied=1; available=1
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Reserve: accepted; occupied=2; available=0
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Reserve: rejected; occupied=2; available=0
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Cancel: accepted; occupied=1; available=1
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Cancel: accepted; occupied=0; available=2
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Cancel: rejected; occupied=0; available=2
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Status: occupied=0; available=2
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Goodbye.
+
+CASE invalid
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Choose 1, 2, 3, or 4.
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Choose 1, 2, 3, or 4.
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Goodbye.
+
+CASE eof
+1 Reserve | 2 Cancel | 3 Status | 4 Exit
+Goodbye.
