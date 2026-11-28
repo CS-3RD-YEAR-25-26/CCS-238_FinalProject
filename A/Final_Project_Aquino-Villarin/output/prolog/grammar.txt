@@ -1,0 +1,16 @@
+VALID | the dog chases the cat | s(np(det(the),n(dog)),vp(v(chases),np(det(the),n(cat))))
+VALID | a big dog sleeps | s(np(det(a),adj(big),n(dog)),vp(v(sleeps)))
+VALID | the lazy cat sleeps in the park | s(np(det(the),adj(lazy),n(cat)),vp(v(sleeps),pp(prep(in),np(det(the),n(park)))))
+VALID | every student reads a book | s(np(det(every),n(student)),vp(v(reads),np(det(a),n(book))))
+VALID | the students read many books | s(np(det(the),n(students)),vp(v(read),np(det(many),n(books))))
+VALID | two happy dogs run in the park | s(np(det(two),adj(happy),n(dogs)),vp(v(run),pp(prep(in),np(det(the),n(park)))))
+VALID | the old teacher sees the student with a red book | s(np(det(the),adj(old),n(teacher)),vp(v(sees),np(det(the),n(student),pp(prep(with),np(det(a),adj(red),n(book))))))
+VALID | a small cat likes the ball near the dog | s(np(det(a),adj(small),n(cat)),vp(v(likes),np(det(the),n(ball),pp(prep(near),np(det(the),n(dog))))))
+VALID | the professor chased the students with the ball | s(np(det(the),n(professor)),vp(v(chased),np(det(the),n(students),pp(prep(with),np(det(the),n(ball))))))
+INVALID | the dogs chases the cat | number agreement error
+INVALID | a dogs sleeps | number agreement error
+INVALID | many student sleep | number agreement error
+INVALID | the cat sleeps the dog | does not match the grammar
+INVALID | dog the chases cat | does not match the grammar
+INVALID | the cat | does not match the grammar
+INVALID | the dog barks | unknown word 'barks'
