@@ -6,6 +6,10 @@
 %
 % Run from the project folder:
 %   swipl prolog/grammar/grammar.pl
+%   swipl prolog/grammar/grammar.pl "the happy cat sleeps"
+%
+% The second form checks only the given sentence and prints the result
+% without changing the output file.
 
 % initialization(main, main) runs main/0 once the file is loaded and
 % then halts. If main fails or throws, swipl exits with a non-zero code.
@@ -203,9 +207,23 @@ read_lines(File, Lines) :-
     split_string(Content, "\n", " \t\r", Raw),
     exclude(==(""), Raw, Lines).
 
+% The argv flag holds the words typed after the file name, as a list of
+% atoms. If there are none, the whole input file is checked. Otherwise
+% the words are joined back into one sentence and only that sentence is
+% checked and printed; the output file is left alone.
+main :-
+    current_prolog_flag(argv, Args),
+    (   Args == []
+    ->  check_file
+    ;   atomic_list_concat(Args, ' ', Joined),
+        atom_string(Joined, Line),
+        result_line(Line, Text),
+        format("~w~n", [Text])
+    ).
+
 % setup_call_cleanup/3 makes sure the output file is closed even if
 % something in the middle throws an error.
-main :-
+check_file :-
     script_dir(Dir),
     atomic_list_concat([Dir, '/../../inputs/grammar/sentences.txt'], InFile),
     atomic_list_concat([Dir, '/../../output/prolog/grammar.txt'], OutFile),
